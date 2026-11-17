@@ -1,0 +1,55 @@
+def lru(pages, capacity):
+    frames = []
+    last_used = {}
+    faults = 0
+
+    for time, page in enumerate(pages):
+
+        if page not in frames:
+            faults += 1
+
+            if len(frames) < capacity:
+                frames.append(page)
+            else:
+                oldest = min(
+                    frames,
+                    key=lambda p: last_used[p]
+                )
+
+                frames[frames.index(oldest)] = page
+
+        last_used[page] = time
+
+    return faults
+# Пример тестирования функции lru
+pages_list = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2]
+capacity_val = 3
+print(f"Количество промахов (page faults): {lru(pages_list, capacity_val)}")
+Количество промахов (page faults): 9
+def optimal(pages, capacity):
+    frames = []
+    faults = 0
+
+    for i, page in enumerate(pages):
+
+        if page not in frames:
+            faults += 1
+
+            if len(frames) < capacity:
+                frames.append(page)
+            else:
+                future = pages[i + 1:]
+
+                distances = []
+
+                for p in frames:
+                    if p in future:
+                        distances.append(future.index(p))
+                    else:
+                        distances.append(float('inf'))
+
+                victim = frames[distances.index(max(distances))]
+
+                frames[frames.index(victim)] = page
+
+    return faults
