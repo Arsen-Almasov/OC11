@@ -1,0 +1,100 @@
+!cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=24.04
+DISTRIB_CODENAME=noble
+DISTRIB_DESCRIPTION="Ubuntu 24.04.5 LTS"
+!sudo apt update
+!sudo apt install python3 python3-venv gcc git
+Get:1 https://cli.github.com/packages stable InRelease [3,917 B]
+Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:3 https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/ InRelease [3,631 B]
+Get:4 https://cli.github.com/packages stable/main amd64 Packages [358 B]
+Get:5 https://r2u.stat.illinois.edu/ubuntu noble InRelease [9,161 B]
+Get:6 https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/ Packages [81.1 kB]
+Hit:7 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:8 https://r2u.stat.illinois.edu/ubuntu noble/main amd64 Packages [3,142 kB]
+Get:9 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:10 https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble InRelease [17.8 kB]
+Get:11 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [55.6 kB]
+Get:12 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [2,211 kB]
+Get:13 https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble/main amd64 Packages [60.9 kB]
+Get:14 https://r2u.stat.illinois.edu/ubuntu noble/main all Packages [10.6 MB]
+Get:15 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,472 kB]
+Get:16 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,558 kB]
+Get:17 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:18 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2,324 kB]
+Get:19 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2,179 kB]
+Get:20 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,793 kB]
+Get:21 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [61.7 kB]
+Fetched 25.9 MB in 4s (7,128 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+49 packages can be upgraded. Run 'apt list --upgradable' to see them.
+W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+python3 is already the newest version (3.12.3-0ubuntu2.1).
+python3 set to manually installed.
+gcc is already the newest version (4:13.2.0-7ubuntu1).
+gcc set to manually installed.
+git is already the newest version (1:2.43.0-1ubuntu7.4).
+The following NEW packages will be installed:
+  python3-pip-whl python3-setuptools-whl python3-venv python3.12-venv
+0 upgraded, 4 newly installed, 0 to remove and 49 not upgraded.
+Need to get 2,430 kB of archives.
+After this operation, 2,783 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3-pip-whl all 24.0+dfsg-1ubuntu1.3 [1,707 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3-setuptools-whl all 68.1.2-2ubuntu1.2 [716 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3.12-venv amd64 3.12.3-1ubuntu0.17 [5,684 B]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3-venv amd64 3.12.3-0ubuntu2.1 [1,032 B]
+Fetched 2,430 kB in 2s (1,405 kB/s)
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 79, <STDIN> line 4.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Selecting previously unselected package python3-pip-whl.
+(Reading database ... 122813 files and directories currently installed.)
+Preparing to unpack .../python3-pip-whl_24.0+dfsg-1ubuntu1.3_all.deb ...
+Unpacking python3-pip-whl (24.0+dfsg-1ubuntu1.3) ...
+Selecting previously unselected package python3-setuptools-whl.
+Preparing to unpack .../python3-setuptools-whl_68.1.2-2ubuntu1.2_all.deb ...
+Unpacking python3-setuptools-whl (68.1.2-2ubuntu1.2) ...
+Selecting previously unselected package python3.12-venv.
+Preparing to unpack .../python3.12-venv_3.12.3-1ubuntu0.17_amd64.deb ...
+Unpacking python3.12-venv (3.12.3-1ubuntu0.17) ...
+Selecting previously unselected package python3-venv.
+Preparing to unpack .../python3-venv_3.12.3-0ubuntu2.1_amd64.deb ...
+Unpacking python3-venv (3.12.3-0ubuntu2.1) ...
+Setting up python3-setuptools-whl (68.1.2-2ubuntu1.2) ...
+Setting up python3-pip-whl (24.0+dfsg-1ubuntu1.3) ...
+Setting up python3.12-venv (3.12.3-1ubuntu0.17) ...
+Setting up python3-venv (3.12.3-0ubuntu2.1) ...
+!git clone https://github.com/Arsen-Almasov
+%cd Arsen-Almasov
+Cloning into 'Arsen-Almasov'...
+remote: Not Found
+fatal: repository 'https://github.com/Arsen-Almasov/' not found
+[Errno 2] No such file or directory: 'Arsen-Almasov'
+/content
+%%bash
+python3 -m venv .venv --without-pip
+source .venv/bin/activate
+pip install -r requirements.txt
+Requirement already satisfied: matplotlib>=3.8 in /usr/local/lib/python3.13/dist-packages (from -r requirements.txt (line 1)) (3.10.0)
+Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.13/dist-packages (from matplotlib>=3.8->-r requirements.txt (line 1)) (1.4.0)
+Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.13/dist-packages (from matplotlib>=3.8->-r requirements.txt (line 1)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.13/dist-packages (from matplotlib>=3.8->-r requirements.txt (line 1)) (4.68.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.13/dist-packages (from matplotlib>=3.8->-r requirements.txt (line 1)) (1.5.1)
+Requirement already satisfied: numpy>=1.23 in /usr/local/lib/python3.13/dist-packages (from matplotlib>=3.8->-r requirements.txt (line 1)) (2.4.6)
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.13/dist-packages (from matplotlib>=3.8->-r requirements.txt (line 1)) (26.3)
+Requirement already satisfied: pillow>=8 in /usr/local/lib/python3.13/dist-packages (from matplotlib>=3.8->-r requirements.txt (line 1)) (11.3.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.13/dist-packages (from matplotlib>=3.8->-r requirements.txt (line 1)) (3.3.3)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.13/dist-packages (from matplotlib>=3.8->-r requirements.txt (line 1)) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.13/dist-packages (from python-dateutil>=2.7->matplotlib>=3.8->-r requirements.txt (line 1)) (1.17.0)
+!python3 --version
+Python 3.13.18
