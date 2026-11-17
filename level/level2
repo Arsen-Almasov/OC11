@@ -70,13 +70,3 @@ for _ in range(1000):
         current = random.randint(0, 19)
 
     local_pages.append(current)
-for name, sequence in [
-    ("Random", random_pages),
-    ("Locality", local_pages)
-]:
-    print(name)
-
-    print("FIFO:", fifo(sequence, 5))
-    print("LRU:", lru(sequence, 5))
-    print("Optimal:", optimal(sequence, 5))
-    print("Clock:", clock(sequence, 5))
