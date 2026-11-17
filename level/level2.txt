@@ -47,7 +47,9 @@ plt.legend()
 plt.grid(True)
 
 plt.savefig('page_replacement.png')
-plt.show()
+plt.show() 
+1 2 3 4 1 2 5 1 2 3 4 5
+
 import random
 
 random.seed(42)
